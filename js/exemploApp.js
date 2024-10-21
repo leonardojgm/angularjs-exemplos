@@ -1,0 +1,1 @@
+var aluguelCarro = angular.module('aluguelCarro', []);

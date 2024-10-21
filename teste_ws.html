@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="aluguelCarro">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Teste Web Service - AngularJS</title>
+        <script src="libs/angularjs/angular.min.js"></script>
+        <script>
+            var alugaCarro = angular.module('aluguelCarro', []);
+            
+            alugaCarro.controller("alugarCarroCtrl", function ($scope, $http) {
+                $http.get("http://localhost:8080/ws_locadora/lista_dados.php?tabela=veiculo").then(function (resposta) {
+                    $scope.listaVeiculos = resposta.data.veiculos;
+                });
+            });
+        </script>
+    </head>
+    <body ng-controller="alugarCarroCtrl">
+        {{listaVeiculos}}
+    </body>
+</html>
